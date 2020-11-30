@@ -4,14 +4,15 @@ class ChatsController < ApplicationController
     @chats=Chat.all
   end
 
-  def show
-  end
-
-  def edit
+  def new
     @chat=Chat.new
   end
 
   def edit
+
+  end
+
+  def show
   end
 
   def create
