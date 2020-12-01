@@ -2,7 +2,6 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 @import 'bootstrap';
-//
 
 .navbar {
   width: 100%;
@@ -10,16 +9,22 @@
   overflow: auto;
 }
 
+#logo{font-style: normal;
+  font-stretch: semi-condensed;
+  font-size: 3rem;
+
+}
+
 .navbar a {
   float: left;
   padding: 12px;
-  color: black;
+  color: white;
   text-decoration: none;
   font-size: 17px;
 }
 
-.navbar a:hover {
-  background-color: #gray;
+.navbar:hover{
+  background-color: #DE3163;
 }
 
 .card-footer{font-size: 2rem;
@@ -30,11 +35,23 @@
 
 }
 
-  .navbar a {
+.navbar a {
     float: none;
     display: block;
   }
-  .navbar a {
+.navbar a {
     float: none;
     display: block;
+  }
+
+  .footer {
+    font-size: 2rem;
+    height: 50px;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color:#DE3163;
+    color: white;
+    text-align: center;
   }
