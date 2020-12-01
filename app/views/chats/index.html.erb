@@ -1,15 +1,22 @@
-<h1>Posts</h1>
-<table cellpadding=10>
-  <tr>
-    <th>post</th>
-  </tr>
-<% @chats.each do |chat| %>
-  <tr>
-    <td><%= chat.post %></td>
-    <td><%= link_to 'View', chat_path(chat.id) %></td>
-    <td><%=link_to "Edit", edit_chat_path(chat.id), data:{confirm: 'Do you really edit it?' }%></td>
-    <td><%=link_to'Delete', chat_path(chat.id), method: :delete, data:{confirm:'Are you sure you want to delete? '}%></td>
-  </tr>
-<% end %>
-</table>
-<%=link_to "[Create a post]", new_chat_path%>
+<%=link_to '[Create new post]', new_chat_path, class:"nav-link"%>
+<div class="container">
+  <% @chats.each do |chat| %>
+  <div class="row justify-content-md-center">
+    <div class="col-8 mt-4">
+     <div class="card text-center shadow  mb-5 bg-white rounded">
+      <div class="card-header font-italic text-success">
+      </div>
+      <div class="card-body">
+      <h5 class="Post"></h5>
+      <p class="card-text"><%=truncate(chat.post, length:100) %>
+        </p><br>
+        <br><br>
+    </div>
+    <div class="card-footer text-muted">
+      <small> <%=time_ago_in_words(chat.created_at)%>ago </small>
+    </div>
+  </div>
+  </div>
+  </div>
+  <%end%>
+</div>
