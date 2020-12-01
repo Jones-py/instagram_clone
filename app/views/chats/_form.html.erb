@@ -1,4 +1,4 @@
-<%=form_with(model: @chat, local: true) do |form| %>
+<%=form_with(model: @chat, local: true ,url: choose_new_or_edit) do |form| %>
   <% if @chat.errors.any? %>
     <div id="error_explanation">
       <h2><%= @chat.errors.count %>There are errors.</h2>
@@ -6,7 +6,7 @@
       <% @chat.errors.full_messages.each do |msg| %>
         <li><%=msg%></li>
       <%end %>
-      <% end %>
+    <%end %>
       </ul>
     </div>
   <div class="chat_post">

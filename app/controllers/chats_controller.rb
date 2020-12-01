@@ -39,7 +39,7 @@ class ChatsController < ApplicationController
   end
 
   def confirm
-
+    @chat=Chat.new(chat_params)
   end
 
   def destroy
