@@ -30,6 +30,15 @@ class ChatsController < ApplicationController
   end
 
   def update
+   @chat= Chat.find(params[:id])
+     if @chat.update(chat_params)
+        redirect_to chats_path, notice: " Edited Post! "
+     else
+      render :edit
+     end
+  end
+
+  def confirm
 
   end
 

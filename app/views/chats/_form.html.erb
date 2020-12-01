@@ -1,0 +1,17 @@
+<%=form_with(model: @chat, local: true) do |form| %>
+  <% if @chat.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= @chat.errors.count %>There are errors.</h2>
+      <ul>
+      <% @chat.errors.full_messages.each do |msg| %>
+        <li><%=msg%></li>
+      <%end %>
+      <% end %>
+      </ul>
+    </div>
+  <div class="chat_post">
+    <%= form.label :post %>
+    <%= form.text_field :post %>
+  </div>
+  <%=form.submit %>
+<% end %>
