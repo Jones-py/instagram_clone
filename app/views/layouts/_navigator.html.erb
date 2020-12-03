@@ -4,6 +4,15 @@
     <%=link_to "Instagram", chats_path, class:"fa fa-fw fa-home", id:"logo"%>
   </ul>
   <a href="#"><i class="fa fa-fw fa-search",justify-content-cente></i> Search</a>
-  <a href="#"><i class="fa fa-fw fa-user"></i> Login</a>
-  <a href="#"><i class="fa fa-fw fa-envelope"></i> Inbox</a>
+
+  <% if logged_in? %>
+  <a href="#"><i class="fa fa-fw fa-user"></i>
+  <%= link_to "Profile", user_path(current_user.id),class:"text-white"  %><br>
+  <%= link_to "Logout", session_path(current_user.id),class:"text-white",  method: :delete %>
+  <% else %>
+    <%= link_to "Sign up", new_user_path,class:"text-white" %><br>
+    <%= link_to "Login", new_session_path,class:"text-white"  %>
+ <%end%>
+  </a>
+   <a href="#"><i class="fa fa-fw fa-envelope"></i> Inbox</a>
 </div>

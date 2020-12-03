@@ -1,7 +1,14 @@
-<h3>Send with the following contents.</h3>
-<%= form_with(model: @chat, url: chats_path, local: true) do |form| %>
-  <%= form.hidden_field :post%>
-  <p>Post:<%= @chat.post%></p>
-  <%= form.submit  "Proceed" %>
-  <%= form.submit "Return", name: 'back' %>
+<h6>Confirm Post Details</h6>
+<%=form_with(model: @chat, url: chats_path, local: true) do |form| %>
+  <%=form.hidden_field :post %>
+  <%=@chat.post %>
+  <div class="image-size">
+  <%= image_tag @chat.image.url,:size => "260x180" if @chat.image && @chat.image.url%>
+  <%= form.hidden_field :image_cache %>
+  </div>
+  <%=form.submit "Proceed" %>
 <%end%>
+<%=form_with(model:@chat, url:new_chat_path, local:true, method:"get") do |form| %>
+  <%= form.hidden_field :image_cache %>
+  <%= form.submit "Return", name: "back" %>
+<% end %>

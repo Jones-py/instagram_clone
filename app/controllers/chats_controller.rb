@@ -1,5 +1,6 @@
 class ChatsController < ApplicationController
   before_action :set_chat, only:[:show, :edit, :update, :destroy]
+
   def index
     @chats=Chat.all
   end
@@ -17,7 +18,7 @@ class ChatsController < ApplicationController
 
   def create
     @chat= Chat.new(chat_params)
-      # @chat.user_id=current_User.id
+      @chat.user_id=current_user.id
       if params[:back]
        render :new
       else
@@ -52,6 +53,6 @@ class ChatsController < ApplicationController
     @chat=Chat.find(params[:id])
   end
   def chat_params
-    params.require(:chat).permit(:post, :user_id, :id)
+    params.require(:chat).permit(:post, :image, :image_cache, :user_id, :id)
   end
 end

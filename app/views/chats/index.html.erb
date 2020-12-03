@@ -10,6 +10,9 @@
       <h5 class="Post"></h5>
       <p class="card-text"><%=truncate(chat.post, length:100) %>
         </p><br>
+        <% if chat.image.url %>
+          <%=image_tag chat.image.url,size: "200x180" %>
+        <% end %>
         <br><br>
     </div>
     <div class="card-footer text-muted">

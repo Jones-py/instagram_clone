@@ -1,0 +1,19 @@
+<div class="container, justify-content-center">
+  <div class="col-5">
+   <%= form_with(scope: :session, url: sessions_path, local: true) do |f| %>
+    <div class="form-group">
+        <label for="exampleInputEmail1"><%= f.label :email %></label>
+        <div class="row">
+         <div class="col-xs-6"><%= f.email_field :email %></div>
+      </div>
+      <br>
+      <div class="form-group">
+        <label for="exampleInputPassword1"><%= f.label :password %></label>
+        <div class="row">
+           <div class="col-xs-6"> <%=f.password_field :password %></div>
+         </div>
+         <br>
+      <%= f.submit "Login" %>
+   <%end%>
+  </div>
+</div>

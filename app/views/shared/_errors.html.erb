@@ -1,0 +1,10 @@
+<div class="container">
+  <% if @chat.errors.any? %>
+  <h4><%= @chat.errors.count %> Errors Present.</h4>
+    <ul>
+    <% @chat.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+  <% end %>
+  </div>
