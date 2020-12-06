@@ -1,2 +1,17 @@
-<h1>Your Post</h1><br>
-<p><%= @chat.post %></p>
+<div class="container">
+  <h3>Your Post</h3><br>
+
+  <p id="notice"><%= notice %></p>
+  <p><%= @chat.user.name %></p>
+  <p><%= @chat.post%></p>
+  <p><strong>Image:</strong>
+    <%=image_tag(@chat.image.url,size: "200x180") if @chat.image && @chat.image.url %>
+
+  <% unless @chat.user_id == current_user.id %>
+    <% if @favorite.present? %>
+      <button type="button" class="btn btn-danger"><%= link_to 'Unfavorite', favorite_path(id: @favorite.id), method: :delete %>
+    <% else %>
+      <button type="button" class="btn btn-primary"><%= link_to 'Favorite', favorites_path(chat_id: @chat.id), method: :post %>
+    <% end %>
+  <% end %>
+</div>

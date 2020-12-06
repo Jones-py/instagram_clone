@@ -1,34 +1,35 @@
 class ChatsController < ApplicationController
-  before_action :set_chat, only:[:show, :edit, :update, :destroy]
+  before_action :set_chat, only: [:show, :edit, :update, :destroy]
 
   def index
     @chats=Chat.all
   end
 
   def new
-    @chat=Chat.new
+    if params[:back]
+      @chat = Chat.new(chat_params)
+    else
+      @chat = Chat.new
+    end
   end
 
   def edit
-
   end
 
   def show
+    @chat=Chat.find(params[:id])
+    @favorite = current_user.favorites.find_by(chat_id: @chat.id)
   end
 
   def create
-    @chat= Chat.new(chat_params)
-      @chat.user_id=current_user.id
-      if params[:back]
+     @chat = Chat.new(chat_params)
+     @chat.user_id=current_user.id
+     if @chat.save
+       redirect_to chats_path, notice: "New Post!"
+     else
        render :new
-      else
-       if @chat.save
-        redirect_to chats_path, notice: "New Post!"
-       else
-        render :new
-       end
      end
-  end
+   end
 
   def update
    @chat= Chat.find(params[:id])
@@ -41,6 +42,7 @@ class ChatsController < ApplicationController
 
   def confirm
     @chat=Chat.new(chat_params)
+    @chat.user_id=current_user.id
   end
 
   def destroy

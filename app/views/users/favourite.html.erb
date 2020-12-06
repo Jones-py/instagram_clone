@@ -1,0 +1,15 @@
+<h1><%= @user.name %></h1>
+<table>
+  <tbody>
+    <% @favorites.each do |chat| %>
+      <tr>
+        <td><%= chat.user.name %></td>
+        <td><%= image_tag(chat.image.url) %></td>
+        <td><%= chat.chats %></td>
+        <td><%= link_to 'Show', @chat %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'Home', chats_path %>

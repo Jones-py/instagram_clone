@@ -14,4 +14,5 @@
  *= require_tree .
  *= require_self
  */
- 
+
+ .card-header{font-size: 0.8rem;}

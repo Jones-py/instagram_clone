@@ -1,5 +1,8 @@
 class Chat < ApplicationRecord
-  belongs_to :user
-  validates :post, presence: true, length: {minimum:1, maximum: 300}
   mount_uploader :image, ImageUploader
+  validates :post, presence: true
+  validates :image, presence: true
+  belongs_to :user
+  has_many :favorites, dependent: :destroy
+  has_many :favorite_users, through: :favorites, source: :user
 end

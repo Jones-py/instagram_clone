@@ -1,10 +1,10 @@
-<%=link_to '[Create new post]', new_chat_path, class:"nav-link"%>
 <div class="container">
   <% @chats.each do |chat| %>
   <div class="row justify-content-md-center">
     <div class="col-8 mt-4">
      <div class="card text-center shadow  mb-5 bg-white rounded">
       <div class="card-header font-italic text-success">
+        <%=chat.user.name%>
       </div>
       <div class="card-body">
       <h5 class="Post"></h5>
@@ -14,12 +14,17 @@
           <%=image_tag chat.image.url,size: "200x180" %>
         <% end %>
         <br><br>
+        <%= link_to "View", chat_path(chat), class: "btn btn-outline-success" %>
+        <%= link_to "Edit", edit_chat_path(chat.id), class: "btn btn-outline-success" %>
+        <%= link_to "Delete", chat_path(chat.id), class: "btn btn-outline-danger", method: :delete, data: {confirm: "Are you sure?"} %>
     </div>
     <div class="card-footer text-muted">
-      <small> <%=time_ago_in_words(chat.created_at)%>ago </small>
+      <small> <%=time_ago_in_words(chat.created_at)%> ago </small>
     </div>
   </div>
   </div>
   </div>
   <%end%>
 </div>
+<br>
+<br>

@@ -1,12 +1,13 @@
 Rails.application.routes.draw do
-  get 'sessions/new'
-  get 'users/new'
-  get 'chats/index'
-  resources :sessions
-  resources :users
-  resources :chats do
-    collection do
-      post :confirm
+  root 'users#new'
+    resources :chats do
+      collection do
+        post :confirm
+      end
     end
+    resources :sessions, only: [:new, :create, :destroy]
+    resources :users
+
+    resources :favorites, only: [:index,:create, :destroy]
+
   end
-end
