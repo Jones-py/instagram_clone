@@ -1,14 +1,22 @@
-<h6>Confirm Post Details</h6>
-<%=form_with(model: @chat, url: chats_path, local: true) do |form| %>
-  <%=form.hidden_field :post %>
-  <%=@chat.post %>
-  <div class="image-size">
-  <%= image_tag @chat.image.url,:size => "260x180" if @chat.image && @chat.image.url%>
-  <%= form.hidden_field :image_cache %>
-  </div>
-  <%=form.submit "Proceed" %>
-<%end%>
-<%=form_with(model:@chat, url:new_chat_path, local:true, method:"get") do |form| %>
-  <%= form.hidden_field :image_cache %>
-  <%= form.submit "Return", name: "back" %>
-<% end %>
+<div class="row justify-content-center">
+  <div class="col-3">
+    <h3>Confirm Post Details</h3>
+    <span style="font-size:20px">
+    <%=form_with(model: @chat, url: chats_path, local: true) do |form| %>
+      <%=form.hidden_field :post %>
+      <%=@chat.post %>
+      <div class="image-size">
+      <%= image_tag @chat.image.url,:size => "260x180" if @chat.image && @chat.image.url%>
+      <%= form.hidden_field :image_cache %>
+      </div><br>
+      <%=form.submit "Proceed" %>
+    <%end%>
+    </span>
+    <span style="font-size:20px">
+    <%=form_with(model:@chat, url:new_chat_path, local:true, method:"get") do |form| %>
+      <%= form.hidden_field :image_cache %><br>
+    <%= form.submit "Return", name: "back" %>
+    <% end %>
+    </span>
+</div>
+</div>

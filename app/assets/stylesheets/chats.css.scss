@@ -9,7 +9,23 @@
   overflow: auto;
 }
 
-.card-header{font-size: 0.8rem;
+.font{font-size: 2rem;
+  font-weight: 600;
+  color: #DE3163;
+  font-style: oblique;
+}
+.post{font-size: 2rem;
+  font-weight: 600;
+  color: #DE3163;
+  font-style: oblique;
+
+.form-group{font-size: 1.5rem;
+  color: #DE3163;
+}
+
+}
+.card-header{font-size: 1rem;
+  font-weight: 600;
 
 }
 
@@ -19,9 +35,10 @@ body {font-size: 0.8rem;
 }
 
 
-#logo{font-style: normal;
-  font-stretch: semi-condensed;
+#logo{
+
   font-size: 3rem;
+  font-style: oblique;
 
 }
 
@@ -41,7 +58,21 @@ body {font-size: 0.8rem;
 
 }
 
+.confirm{background-color:#DE3163;
+  color: white;
+  font-weight: 500;
+
+}
 .card-body{font-size: 2rem;
+color: white;
+}
+.card-text{font-size: 1.5rem;
+  color:#DE3163;
+
+}
+.card-title{font-size: 2rem;
+  font-weight: 600;
+  color:#DE3163;
 
 }
 
@@ -64,4 +95,18 @@ body {font-size: 0.8rem;
     background-color:#DE3163;
     color: white;
     text-align: center;
+  }
+
+  .btn {
+    background-color: #DE3163;
+    font-weight: 500;
+    border: none;
+    color: white;
+    padding: 12px 16px;
+    font-size: 16px;
+    cursor: pointer;
+
+  }
+  .btn:hover {
+    background-color: pink;
   }

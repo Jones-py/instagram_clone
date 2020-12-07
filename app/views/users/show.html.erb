@@ -1,12 +1,13 @@
 
-<div class="container">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<div class="container mt-3">
   <div class="container-fluid text-center">
     <div class="col-xs-8 col-xs-push-2">
       <p id="notice"><%= notice %></p>
     </div><br>
-  <span style="font-size:20px">
+  <span class="mt-5" style="font-size:20px"><br><br>
     <ul>
-      <p><%=@user.name %>'Profile</p><br>
+      <p class="row justify-content-center mt 80"><%=@user.name %>'Profile</p><br>
       <strong>Email:</strong><%= @user.email %>
     </ul>
   </span>
@@ -15,7 +16,7 @@
         <% if @user == current_user %>
           <%= link_to 'New Post', new_chat_path , class: "btn btn-outline-dark common-btn edit-profile-btn" %>
           <%= link_to 'Edit Info', edit_user_path(@user) , class: "btn btn-outline-dark common-btn edit-profile-btn" %>
-          <%= link_to 'Delete Account', @user, method: :delete, data: { confirm: 'Are you sure?' } , class: "btn btn-danger "%>
+          <%= link_to 'Delete Account', @user, method: :delete, data: { confirm: 'Are you sure?' } , class: "btn btn-danger" %>
           <% end %>
       <% end %>
   </div>

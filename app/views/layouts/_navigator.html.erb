@@ -2,20 +2,19 @@
 <div class="navbar mr-auto">
   <ul class="navbar-nav mr-auto">
     <h2><%=link_to "Instagram", chats_path, class:"fa fa-fw fa-home", id:"logo"%></h2>
-    <h4><%=link_to 'Share a Post', new_chat_path, class:"btn btn-success btn-ss"%></h4>
-
   </ul>
 
   <a href="#"><i class="fa fa-fw fa-search",justify-content-cente></i> Search</a>
+  <%=link_to 'Share a Post', new_chat_path, class:"btn btn text-white"%>
 
   <% if logged_in? %>
   <a href="#"><i class="fa fa-fw fa-user"></i>
-  <%= link_to "Profile", user_path(current_user.id),class:"text-white"  %>
-  <%=link_to "Favorite", favorites_path,class:"text-white"%>
-  <%= link_to "Logout", session_path(current_user.id),class:"text-white",  method: :delete %>
+  <%= link_to "Profile", user_path(current_user.id),class:"btn btn text-white"  %>
+  <%=link_to "Favorite", favorites_path,class:"btn btn text-white"%>
+  <%= link_to "Logout", session_path(current_user.id),class:"btn btn text-white",  method: :delete %>
   <% else %>
-    <%= link_to "Sign up", new_user_path,class:"text-white" %><br>
-    <%= link_to "Login", new_session_path,class:"text-white"  %>
+    <%= link_to "Sign up", new_user_path,class:"btn btn text-white" %><br>
+    <%= link_to "Login", new_session_path,class:"btn btn text-white"  %>
  <%end%>
   </a>
    <a href="#"><i class="fa fa-fw fa-envelope"></i> Inbox</a>

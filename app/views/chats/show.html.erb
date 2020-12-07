@@ -1,17 +1,25 @@
-<div class="container">
-  <h3>Your Post</h3><br>
+<div class="row justify-content-center">
+  <div class="col-3">
+  <div class="container">
+    <p id="notice"><%= notice %></p>
+    <div class="row justify-content-center">
+     <h5 class="card-title"><strong><%=@chat.user.name %>' Post</strong></h5>
+     </div>
+    <div class="card" style="width: 25rem;">
 
-  <p id="notice"><%= notice %></p>
-  <p><%= @chat.user.name %></p>
-  <p><%= @chat.post%></p>
-  <p><strong>Image:</strong>
-    <%=image_tag(@chat.image.url,size: "200x180") if @chat.image && @chat.image.url %>
+     <%=image_tag(@chat.image.url,size: "317x215") if @chat.image && @chat.image.url %>
+      <div class="card-body text-white">
 
-  <% unless @chat.user_id == current_user.id %>
-    <% if @favorite.present? %>
-      <button type="button" class="btn btn-danger"><%= link_to 'Unfavorite', favorite_path(id: @favorite.id), method: :delete %>
-    <% else %>
-      <button type="button" class="btn btn-primary"><%= link_to 'Favorite', favorites_path(chat_id: @chat.id), method: :post %>
-    <% end %>
-  <% end %>
+        <p class="card-text"><%= @chat.post%></p>
+        <% unless @chat.user_id == current_user.id %>
+        <% if @favorite.present? %>
+        <button type="button" class="btn btn text-white"><%= link_to 'Unfavorite', favorite_path(id: @favorite.id), method: :delete %>
+       <% else %>
+        <button type="button" class="btn btn text-white"><%= link_to 'Favorite', favorites_path(chat_id: @chat.id), method: :post %>
+      <% end %>
+     <% end %>
+      </div>
+    </div>
+  </div>
+</div>
 </div>

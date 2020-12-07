@@ -2,9 +2,11 @@
   <% @chats.each do |chat| %>
   <div class="row justify-content-md-center">
     <div class="col-8 mt-4">
-     <div class="card text-center shadow  mb-5 bg-white rounded">
-      <div class="card-header font-italic text-success">
+     <div class="card text-center shadow  mb-10 bg rounded">
+      <div class="card-header">
+        <strong><span style="font-size:20px">
         <%=chat.user.name%>
+        </span></strong>
       </div>
       <div class="card-body">
       <h5 class="Post"></h5>
@@ -14,8 +16,8 @@
           <%=image_tag chat.image.url,size: "200x180" %>
         <% end %>
         <br><br>
-        <%= link_to "View", chat_path(chat), class: "btn btn-outline-success" %>
-        <%= link_to "Edit", edit_chat_path(chat.id), class: "btn btn-outline-success" %>
+        <%= link_to "View", chat_path(chat), class: "btn btn text-white" %>
+        <%= link_to "Edit", edit_chat_path(chat.id), class: "btn btn text-white" %>
         <%= link_to "Delete", chat_path(chat.id), class: "btn btn-outline-danger", method: :delete, data: {confirm: "Are you sure?"} %>
     </div>
     <div class="card-footer text-muted">
