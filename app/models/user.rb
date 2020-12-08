@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  mount_uploader :image, ImageUploader
+  mount_uploader :favpic, FavpicUploader
   has_many :chats
   before_validation{email.downcase!}
   validates :name,  presence: true, length: { maximum: 30 }

@@ -34,7 +34,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
   def user_params
-    params.require(:user).permit(:name,:image,:image_cache, :email, :password,
+    params.require(:user).permit(:name,:favpic,:favpic_cache, :email, :password,
                                    :password_confirmation)
   end
 end

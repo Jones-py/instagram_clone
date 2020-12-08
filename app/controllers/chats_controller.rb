@@ -3,7 +3,7 @@ class ChatsController < ApplicationController
   before_action :current_user
   before_action :authenticate_user
   before_action :logged_in?
-  
+
   def index
     @chats=Chat.all
   end
@@ -28,6 +28,7 @@ class ChatsController < ApplicationController
      @chat = Chat.new(chat_params)
      @chat.user_id=current_user.id
      if @chat.save
+       ChatMailer.chat_mail(@chat).deliver
        redirect_to chats_path, notice: "New Post!"
      else
        render :new

@@ -1,23 +1,23 @@
-
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<div class="container mt-3">
-  <div class="container-fluid text-center">
-    <div class="col-xs-8 col-xs-push-2">
-      <p id="notice"><%= notice %></p>
-    </div><br>
-  <span class="mt-5" style="font-size:20px"><br><br>
-    <ul>
-      <p class="row justify-content-center mt 80"><%=@user.name %>'Profile</p><br>
-      <strong>Email:</strong><%= @user.email %>
-    </ul>
-  </span>
+<div class="row justify-content-center">
+<div class="col-3">
+  <div class="container">
+  
+  <div class="card" style="width: 27rem;">
+    <div class="card-body">
+      <h5 class="card-title"><%=@user.name%>'s Profile</h5>
+      <h6 class="card-subtitle mb-2 text-muted"><strong>Email:</strong><%= @user.email %></h6>
+      <hr>
+      <p class="card-text"><%=image_tag(@user.favpic.url,size: "317x215") if @user.favpic && @user.favpic.url %></p>
+      <hr>
       <% if logged_in? %>
-
-        <% if @user == current_user %>
-          <%= link_to 'New Post', new_chat_path , class: "btn btn-outline-dark common-btn edit-profile-btn" %>
-          <%= link_to 'Edit Info', edit_user_path(@user) , class: "btn btn-outline-dark common-btn edit-profile-btn" %>
-          <%= link_to 'Delete Account', @user, method: :delete, data: { confirm: 'Are you sure?' } , class: "btn btn-danger" %>
-          <% end %>
+       <% if @user == current_user %>
+        <button type="button" class="btn btn text-white"><%= link_to 'New Post', new_chat_path , class: "card-link"%>
+        <button type="button" class="btn btn text-white"><%= link_to 'Edit', edit_user_path(@user), class: "card-link"%>
+        <button type="button" class="btn btn text-white"><%= link_to 'Delete Account', @user, method: :delete, data: {confirm: 'Are you sure?'}, class: "card-link" %>
       <% end %>
+    <% end %>
+    </div>
   </div>
+  </div>
+</div>
 </div>

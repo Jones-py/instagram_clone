@@ -1,21 +1,21 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <div class="navbar mr-auto">
   <ul class="navbar-nav mr-auto">
-   <h2><%=link_to "", chats_path, class:"fa fa-instagram", id:"logo"%></h2>
+   <h2><%=link_to "", chats_path, class:"btn btn fa fa-instagram", id:"logo"%></h2>
   </ul>
 
-  <a href="#"><i class="fa fa-fw fa-search",justify-content-cente></i> Search</a>
-  <%=link_to '', new_chat_path, class:"fa fa-share-alt",id:"share"%>
+  <a href="#"><i class="btn btn fa fa-search",justify-content-cente></i> Search</a>
+  <%=link_to '', new_chat_path, class:"btn btn fa fa-share-alt",id:"share"%>
 
   <% if logged_in? %>
   <a href="#"><i class="fa fa"></i>
   <%= link_to "Profile", user_path(current_user.id),class:"btn btn text-white"  %>
   <%=link_to "Favorite", favorites_path,class:"btn btn text-white"%>
-  <%= link_to " Logout", session_path(current_user.id),class:"fa fa-sign-out ", id:"sign",  method: :delete %>
+  <%= link_to " Logout", session_path(current_user.id),class:"btn btn fa fa-sign-out ", id:"sign",  method: :delete %>
   <% else %>
     <%= link_to "Sign up", new_user_path,class:"btn btn text-white" %><br>
-    <%= link_to " Login", new_session_path,class:"fa fa-sign-in ",id:"login"  %>
+    <%= link_to " Login", new_session_path,class:"btn btn fa fa-sign-in ",id:"login"  %>
  <%end%>
-  </a>
-   <a href="#"><i class="fa fa-paper-plane-o"></i></a>
+   <a href="#"><i class="btn btn fa fa-paper-plane-o"></i></a>
+     </a>
 </div>
