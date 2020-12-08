@@ -9,6 +9,17 @@
   overflow: auto;
 }
 
+.session{font-size: 2rem;
+  font-weight: 600;
+  color: #DE3163;
+  font-style: oblique;}
+
+.new{font-size: 2rem;
+    font-weight: 600;
+    color: #DE3163;
+    font-style: oblique;}
+
+
 .font{font-size: 2rem;
   font-weight: 600;
   color: #DE3163;
@@ -34,12 +45,28 @@ body {font-size: 0.8rem;
   height: 100%;
 }
 
+#share{
+  font-size: 2.5rem;
+}
+
+#sign{font-weight: 200;
+  font-size: 1.8rem;
+}
+
+#login{font-weight: 200;
+  font-size: 1.8rem;
+}
+
+
+.fa{font-size: 2.5rem;
+  font-weight: 600;
+
+}
 
 #logo{
-
   font-size: 3rem;
-  font-style: oblique;
-
+  font-stretch: ultra-expanded;
+  font-weight: 700;
 }
 
 .navbar a {

@@ -8,13 +8,13 @@
       <div class="image-size">
       <%= image_tag @chat.image.url,:size => "260x180" if @chat.image && @chat.image.url%>
       <%= form.hidden_field :image_cache %>
-      </div><br>
+      </div>
       <%=form.submit "Proceed" %>
     <%end%>
     </span>
     <span style="font-size:20px">
     <%=form_with(model:@chat, url:new_chat_path, local:true, method:"get") do |form| %>
-      <%= form.hidden_field :image_cache %><br>
+      <%= form.hidden_field :image_cache %>
     <%= form.submit "Return", name: "back" %>
     <% end %>
     </span>

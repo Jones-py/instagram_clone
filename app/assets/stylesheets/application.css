@@ -16,3 +16,13 @@
  */
 
  .card-header{font-size: 0.8rem;}
+ .instagram{
+   font-size: 3rem;
+   font-style: oblique;
+ }
+
+ .navbar-nav{
+   font-size: 3rem;
+   font-weight: 600;
+   font-style: oblique;
+ }
