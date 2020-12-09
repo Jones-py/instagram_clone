@@ -28,7 +28,7 @@ class ChatsController < ApplicationController
      @chat = Chat.new(chat_params)
      @chat.user_id=current_user.id
      if @chat.save
-       # ChatMailer.chat_mail(@chat).deliver
+       ChatMailer.chat_mail(@chat).deliver
        redirect_to chats_path, notice: "New Post!"
      else
        render :new
