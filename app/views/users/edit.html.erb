@@ -1,0 +1,43 @@
+<div class="col-12">
+<div class="container">
+  <% if @user.errors.any? %>
+  <div class="alert alert-danger" role="alert">
+    <ul>
+      <% @user.errors.full_messages.each do |message|%>
+      <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+  <% end %>
+  <br>
+
+  <div class="form-login box text-center">
+    <h3 class="new">Edit Your Account:</h3><br>
+    <span style="font-size:15px">
+    <%= form_with(model: @user, local: true) do |form|%>
+    <p><%= form.text_field :name, placeholder: 'name', class: "log-in-tag" %></p>
+    <br>
+    <p><%= form.email_field :email, placeholder: 'email', class: "log-in-tag" %></p>
+    <br>
+    <p><%= form.password_field :password, placeholder: 'password', class: "log-in-tag" %></p>
+    <br>
+    <p><%= form.password_field :password_confirmation, placeholder: 'password_confirmation', class: "log-in-tag" %></p>
+    <br>
+    <div class="row justify-content-center">
+      <div class="col-2">
+       <p><%= form.file_field :favpic, placeholder: 'favpic', class: "log-in-tag" %></p>
+      </div>
+      </div>
+       </span>
+       <% if @user.id.present? %>
+           <div class="row justify-content-center"><%= form.submit "Update Account", class:"btn btn text-white" %></div>
+            <p id="notice"><%=notice %></p>
+       <% else %>
+           <div class="row justify-content-center"><%= form.submit "Create Account", class:"btn btn btn text-white" %></div>
+       <% end %>
+    <p>Already have an account？<%= link_to 'Login', new_session_path %></p>
+  </div>
+  <% end %>
+
+</div>
+</div>

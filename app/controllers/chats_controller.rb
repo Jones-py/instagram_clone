@@ -1,7 +1,8 @@
 class ChatsController < ApplicationController
   before_action :set_chat, only: [:show, :edit, :update, :destroy]
   before_action :current_user
-  before_action :authenticate_user
+  before_action :authenticate_user, except: [:show, :index]
+  before_action :require_same_user, only: [:edit, :update, :destroy]
   before_action :logged_in?
 
   def index
@@ -60,5 +61,11 @@ class ChatsController < ApplicationController
   end
   def chat_params
     params.require(:chat).permit(:post, :image, :image_cache, :user_id, :id)
+  end
+  def require_same_user
+    if current_user != @chat.user
+      flash[:alert] = "You can only edit or delete your own article"
+      redirect_to @chat
+    end
   end
 end
