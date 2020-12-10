@@ -16,12 +16,13 @@
           <%=image_tag chat.image.url,size: "200x180" %>
         <% end %>
         <br><br>
-
+        <% if chat.user_id == current_user.id %>
           <%= link_to "Edit", edit_chat_path(chat.id), class: "btn btn text-white" %>
           <%= link_to "Delete", chat_path(chat.id), class: "btn btn-outline-danger", method: :delete, data: {confirm: "Are you sure?"} %>
-
           <%= link_to "View", chat_path(chat), class: "btn btn text-white" %>
-
+         <% else%>
+          <%= link_to "View", chat_path(chat), class: "btn btn text-white" %>
+       <% end %>
     </div>
     <div class="card-footer text-muted">
       <small> <%=time_ago_in_words(chat.created_at)%> ago </small>
