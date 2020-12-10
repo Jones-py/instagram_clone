@@ -29,5 +29,8 @@
 # To learn more, please read the Rails Internationalization guide
 # available at http://guides.rubyonrails.org/i18n.html.
 
+# I18n.config.available_locales = [:ja, :en]
+# I18n.default_locale = :ja
+
 en:
   hello: "Hello world"
