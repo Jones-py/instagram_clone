@@ -9,7 +9,7 @@
 
   <% if logged_in? %>
   <a href="#"><i class="fa fa"></i>
-  <%= link_to "Profile", user_path(current_user.id),class:"btn btn text-white"  %>
+  <%= link_to current_user.name, user_path(current_user.id),class:"btn btn text-white"  %>
   <%=link_to "Favorite", favorites_path,class:"btn btn text-white"%>
   <%= link_to " Logout", session_path(current_user.id),class:"btn btn fa fa-sign-out ", id:"sign",  method: :delete %>
   <% else %>
